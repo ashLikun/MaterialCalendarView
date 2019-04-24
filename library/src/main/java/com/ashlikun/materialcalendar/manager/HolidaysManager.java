@@ -1,4 +1,4 @@
-package com.ashlikun.materialcalendar;
+package com.ashlikun.materialcalendar.manager;
 
 
 import java.text.DateFormat;
@@ -18,9 +18,13 @@ import java.util.Map;
 public class HolidaysManager {
     Map<String, String> mDateMap;
     protected Calendar calendar = Calendar.getInstance();
-    // 农历部分假日
+    /**
+     * 农历部分假日
+     */
     protected final static String[] lunarHoliday = new String[]{"0101 春节", "0115 元宵", "0505 端午", "0707 情人", "0715 中元", "0815 中秋", "0909 重阳", "1208 腊八", "1224 小年", "0100 除夕"};
-    // 公历部分节假日
+    /**
+     * 公历部分节假日
+     */
     protected final static String[] solarHoliday = new String[]{ //
             "0101 元旦", "0214 情人", "0308 妇女", "0312 植树", "0315 消费者权益日", "0401 愚人", "0501 劳动", "0504 青年", //
             "0512 护士", "0601 儿童", "0701 建党", "0801 建军", "0808 父亲", "0910 教师", "0928 孔子诞辰",//

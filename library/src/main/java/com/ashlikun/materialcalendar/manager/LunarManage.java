@@ -1,4 +1,4 @@
-package com.ashlikun.materialcalendar;
+package com.ashlikun.materialcalendar.manager;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

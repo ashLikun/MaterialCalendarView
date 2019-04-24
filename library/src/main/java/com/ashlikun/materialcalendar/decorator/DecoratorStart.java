@@ -1,4 +1,4 @@
-package com.ashlikun.materialcalendar;
+package com.ashlikun.materialcalendar.decorator;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -7,9 +7,9 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.text.style.LineBackgroundSpan;
 
-import com.prolificinteractive.materialcalendarview.CalendarDay;
-import com.prolificinteractive.materialcalendarview.DayViewDecorator;
-import com.prolificinteractive.materialcalendarview.DayViewFacade;
+import com.ashlikun.materialcalendar.CalendarDay;
+import com.ashlikun.materialcalendar.DayViewDecorator;
+import com.ashlikun.materialcalendar.DayViewFacade;
 
 import java.util.List;
 
@@ -23,7 +23,7 @@ import static com.ashlikun.materialcalendar.Utils.dip2px;
  * 功能介绍：开始和结束标记
  */
 
-public class DecoratorEnd implements DayViewDecorator, LineBackgroundSpan {
+public class DecoratorStart implements DayViewDecorator, LineBackgroundSpan {
     protected Context context;
     private String showText;
     List<CalendarDay> selectData;
@@ -31,9 +31,9 @@ public class DecoratorEnd implements DayViewDecorator, LineBackgroundSpan {
     private int padding;
     private int textSize;
 
-    public DecoratorEnd(Context context) {
+    public DecoratorStart(Context context) {
         this.context = context;
-        textHeigth = dip2px(context, 20);
+        textHeigth = dip2px(context, 18);
         padding = dip2px(context, 2);
         textSize = dip2px(context, 14);
     }
@@ -48,7 +48,6 @@ public class DecoratorEnd implements DayViewDecorator, LineBackgroundSpan {
     public void drawBackground(Canvas c, Paint p,
                                int left, int right, int top, int baseline, int bottom,
                                CharSequence text, int start, int end, int lnum) {
-
         int size = right - left;//正方形大小
         //移动原点到正方形左上角
         c.save();
@@ -56,8 +55,8 @@ public class DecoratorEnd implements DayViewDecorator, LineBackgroundSpan {
         Paint paint = new Paint();
         paint.setTextSize(textSize);
         float textWidth = paint.measureText(showText, 0, 2) + padding * 2;
-        float startX = size - textWidth;
-        float startY = size - textHeigth;
+        float startX = 0;
+        float startY = 0;
 
         paint.setColor(Color.parseColor("#FFFF4081"));
         RectF rectF = new RectF(startX, startY, startX + textWidth, startY + textHeigth);
@@ -74,7 +73,7 @@ public class DecoratorEnd implements DayViewDecorator, LineBackgroundSpan {
     @Override
     public boolean shouldDecorate(CalendarDay day) {
         if (selectData != null) {
-            if (selectData.size() >= 2) {
+            if (selectData.size() >= 1) {
                 return isStart(day);
             }
         }
@@ -84,12 +83,12 @@ public class DecoratorEnd implements DayViewDecorator, LineBackgroundSpan {
     private boolean isStart(CalendarDay day) {
         CalendarDay start = selectData.get(0);
         for (int i = 1; i < selectData.size(); i++) {
-            if (selectData.get(i).isAfter(start)) {
+            if (selectData.get(i).isBefore(start)) {
                 start = selectData.get(i);
             }
         }
         if (day.equals(start)) {
-            showText = "结束";
+            showText = "开始";
             return true;
         }
         return false;
@@ -99,6 +98,7 @@ public class DecoratorEnd implements DayViewDecorator, LineBackgroundSpan {
     public void decorate(DayViewFacade view) {
         view.addSpan(this);
     }
+
 
     public void setSelectData(List<CalendarDay> selectData) {
         this.selectData = selectData;

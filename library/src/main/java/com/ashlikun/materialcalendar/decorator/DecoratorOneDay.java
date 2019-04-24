@@ -1,14 +1,14 @@
-package com.ashlikun.materialcalendar;
+package com.ashlikun.materialcalendar.decorator;
 
 import android.graphics.Typeface;
 import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 
-import com.prolificinteractive.materialcalendarview.CalendarDay;
-import com.prolificinteractive.materialcalendarview.DayViewDecorator;
-import com.prolificinteractive.materialcalendarview.DayViewFacade;
+import com.ashlikun.materialcalendar.CalendarDay;
+import com.ashlikun.materialcalendar.DayViewDecorator;
+import com.ashlikun.materialcalendar.DayViewFacade;
 
-import java.util.Date;
+import java.util.Calendar;
 
 /**
  * 作者　　: 李坤
@@ -39,11 +39,8 @@ public class DecoratorOneDay implements DayViewDecorator {
         view.addSpan(new RelativeSizeSpan(1.4f));
     }
 
-    /**
-     * We're changing the internals, so make sure to call
-     * {@ linkplain MaterialCalendarView#invalidateDecorators()}
-     */
-    public void setDate(Date date) {
+
+    public void setDate(Calendar date) {
         this.date = CalendarDay.from(date);
     }
 }

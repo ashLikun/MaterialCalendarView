@@ -1,4 +1,4 @@
-package com.ashlikun.materialcalendar;
+package com.ashlikun.materialcalendar.decorator;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -6,9 +6,10 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.text.style.LineBackgroundSpan;
 
-import com.prolificinteractive.materialcalendarview.CalendarDay;
-import com.prolificinteractive.materialcalendarview.DayViewDecorator;
-import com.prolificinteractive.materialcalendarview.DayViewFacade;
+import com.ashlikun.materialcalendar.Utils;
+import com.ashlikun.materialcalendar.CalendarDay;
+import com.ashlikun.materialcalendar.DayViewDecorator;
+import com.ashlikun.materialcalendar.DayViewFacade;
 
 import java.util.Date;
 

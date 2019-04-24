@@ -5,16 +5,16 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import com.ashlikun.materialcalendar.DecoratorEnd;
-import com.ashlikun.materialcalendar.DecoratorLunar;
-import com.ashlikun.materialcalendar.DecoratorStart;
-import com.ashlikun.materialcalendar.DecoratorToday;
-import com.ashlikun.materialcalendar.HolidaysManager;
-import com.prolificinteractive.materialcalendarview.CalendarDay;
-import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
-import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
-import com.prolificinteractive.materialcalendarview.OnMonthChangedListener;
-import com.prolificinteractive.materialcalendarview.OnRangeSelectedListener;
+import com.ashlikun.materialcalendar.decorator.DecoratorEnd;
+import com.ashlikun.materialcalendar.decorator.DecoratorLunar;
+import com.ashlikun.materialcalendar.decorator.DecoratorStart;
+import com.ashlikun.materialcalendar.decorator.DecoratorToday;
+import com.ashlikun.materialcalendar.manager.HolidaysManager;
+import com.ashlikun.materialcalendar.CalendarDay;
+import com.ashlikun.materialcalendar.MaterialCalendarView;
+import com.ashlikun.materialcalendar.OnDateSelectedListener;
+import com.ashlikun.materialcalendar.OnMonthChangedListener;
+import com.ashlikun.materialcalendar.OnRangeSelectedListener;
 
 import java.util.Calendar;
 import java.util.List;
